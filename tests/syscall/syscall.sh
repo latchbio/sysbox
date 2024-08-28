@@ -13,6 +13,9 @@ if [ $# -eq 1 ]; then
   return
 fi
 
+printf "\nExecuting ioctl syscall tests ... \n"
+bats --tap tests/syscall/ioctl
+
 printf "\nExecuting chown syscall tests ... \n"
 bats --tap tests/syscall/chown
 
@@ -21,9 +24,6 @@ bats --tap tests/syscall/clone
 
 printf "\nExecuting xattr syscall tests ... \n"
 bats --tap tests/syscall/xattr
-
-printf "\nExecuting ioctl syscall tests ... \n"
-bats --tap tests/syscall/ioctl
 
 printf "\nExecuting basic mount syscall-interception tests ... \n"
 bats --tap tests/syscall/mount/mount.bats
