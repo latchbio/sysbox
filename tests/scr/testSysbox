@@ -29,6 +29,10 @@ function restart_sysbox() {
 }
 
 function run_all_tests() {
+
+	# Launch syscall interception test-suite.
+	./tests/syscall/syscall.sh
+
 	printf "\nExecuting sysbox-mgr tests ... \n"
 	bats --tap tests/sysmgr
 	printf "\nExecuting sysbox-fs tests ... \n"
@@ -49,9 +53,6 @@ function run_all_tests() {
 	bats --tap tests/multi-arch
 	printf "\nExecuting buildx + buildkit tests ... \n"
 	bats --tap tests/buildx
-
-	# Launch syscall interception test-suite.
-	./tests/syscall/syscall.sh
 
 	# Launch kind test-suite.
 	./tests/kind/kind.sh
